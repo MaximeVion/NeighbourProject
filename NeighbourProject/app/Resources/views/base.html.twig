@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title> Neighbour's website -{% block title %}{% endblock %}</title>
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('asset/bootstrap/css/bootstrap.min.css') }}">
+    </head>
+
+    <body>
+
+        {% block body %}{% endblock %}
+
+        <script src="{{ asset('asset/bootstrap/js/bootstrap.min.js') }}"></script>
+    </body>
+
+</html>
