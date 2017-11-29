@@ -1,8 +1,92 @@
 {% extends 'base.html.twig' %}
-{% block title %} - HOME{% endblock %}
+{% block title %} - Login{% endblock %}
+
+{% block bodyClass %}
+    connexion
+{% endblock %}
+
 
 {% block body %}
 
-    <h1>Yo</h1>
+    <div class="container">
+        <h1 class="adress">2 Impasse Nationale - Hall 1</h1>
 
+        <div class="descr_proj_connexion w-75 p-5">
+            <h1>Bonjour à toutes et à tous!!</h1>
+            J'ai créé ce site pour faciliter les relations de voisinage. Je vous demande donc d'y jeter un oeil et de vous inscrire si possible car ce mini site propose des services qui peuvent nous être utile à TOUS:
+            <ul>
+                <li>Système de prêt entre voisin (outils, electroménager etc)</li>
+                <li>On a les coordonnées des voisins</li>
+                <li>Système de messages et de commentaires</li>
+                <li>Annonce de soirées</li>
+                <li>Vous pourrez également proposer un service ajouter pour améliorer la plateforme </li>
+            </ul>
+
+            <div class="text-center">
+                <button type="button" id="openNewUserModal" class="btn btn-success mt-2">Inscription</button>
+                <button type="button" id="openConnectUserModal" class="btn btn-primary mt-2">Connexion</button>
+            </div>
+        </div>
+    </div>
+
+
+    {#NEW USER MODAL#}
+
+    <div id="newUserModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Inscription</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{ form_start   (newUser, {'attr': {'class': 'form-horizontal'}}) }}
+
+                    {{ form_label   (newUser.prenom, "Prenom") }}
+                    {{ form_widget  (newUser.prenom, {'attr': {'class': 'form-control mb-2'}}) }}
+
+                    {{ form_label   (newUser.nom, "Nom") }}
+                    {{ form_widget  (newUser.nom, {'attr': {'class': 'form-control mb-2'}}) }}
+
+                    {{ form_label   (newUser.telephone) }}
+                    {{ form_widget  (newUser.telephone, {'attr': {'class': 'form-control mb-2'}}) }}
+
+                    {{ form_label   (newUser.pseudo) }}
+                    {{ form_widget  (newUser.pseudo, {'attr': {'class': 'form-control mb-2'}}) }}
+
+                    {{ form_label   (newUser.appartement) }}
+                    {{ form_widget  (newUser.appartement, {'attr': {'class': 'form-control mb-2'}}) }}
+
+                    <input type="hidden" name="action" value="addUser">
+
+                    {{ form_widget  (newUser.save, {'attr': {'class': 'btn btn-block btn-success'}}) }}
+
+                    {{ form_rest    (newUser) }}
+                    {{ form_end     (newUser) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="connectUserModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Inscription</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post">
+                        <input name="action" value="connectUser" type="hidden">
+                        <input name="pseudoConnexion" type="text" class="form-control mb-2" placeholder="Votre pseudo unique">
+                        <input type="submit" class="form-control btn btn-block btn-success">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
