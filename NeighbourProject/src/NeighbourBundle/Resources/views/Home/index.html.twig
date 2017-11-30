@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'intermediaire.html.twig' %}
 {% block title %} - Login{% endblock %}
 
 {% block bodyClass %}
@@ -7,6 +7,22 @@
 
 
 {% block body %}
+
+    {% if notif is defined and notif == "wrongpseudo" %}
+        <div class="alert alert-danger fixed-top m-auto w-75 alert-dismissible fade show" role="alert">
+            Désolé mais le pseudo ne semble pas être correcte, veuillez réessayer s'il vous plait.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% elseif notif is defined and notif == "wrongroute" %}
+        <div class="alert alert-info fixed-top m-auto w-75 alert-dismissible fade show" role="alert">
+            Cette page n'existe pas
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
 
     <div class="container">
         <h1 class="adress">2 Impasse Nationale - Hall 1</h1>

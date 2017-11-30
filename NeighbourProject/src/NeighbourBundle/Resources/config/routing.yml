@@ -1,3 +1,7 @@
-neighbour_homepage:
+neighbour_connexion:
     path:     /
     defaults: { _controller: NeighbourBundle:Home:index }
+
+neighbour_homepage:
+    path:     /home/{userHash}
+    defaults: { _controller: NeighbourBundle:Home:home }

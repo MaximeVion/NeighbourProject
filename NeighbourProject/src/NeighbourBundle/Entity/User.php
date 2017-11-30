@@ -45,6 +45,13 @@ class User
     /**
      * @var string
      *
+     * @ORM\Column(name="pseudoMd5", type="string", length=255)
+     */
+    private $pseudoMd5;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="telephone", type="string", length=255, nullable=true)
      */
     private $telephone;
@@ -186,5 +193,28 @@ class User
     {
         return $this->appartement;
     }
-}
 
+    /**
+     * Set pseudoMd5
+     *
+     * @param string $pseudoMd5
+     *
+     * @return User
+     */
+    public function setPseudoMd5($pseudoMd5)
+    {
+        $this->pseudoMd5 = $pseudoMd5;
+
+        return $this;
+    }
+
+    /**
+     * Get pseudoMd5
+     *
+     * @return string
+     */
+    public function getPseudoMd5()
+    {
+        return $this->pseudoMd5;
+    }
+}

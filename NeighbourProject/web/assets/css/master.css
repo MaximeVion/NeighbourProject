@@ -4,7 +4,7 @@ body.connexion{
     background-repeat: no-repeat;
     background-position: 0 25%;
     background-attachment: fixed;
-    display: flex;
+    overflow: hidden;
 }
 
 .adress{

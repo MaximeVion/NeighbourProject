@@ -3,6 +3,7 @@
 namespace NeighbourBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,6 +22,7 @@ class UserType extends AbstractType
             ->add('pseudo',   TextType::class)
             ->add('telephone',  TextType::class)
             ->add('appartement',    TextType::class)
+            ->add('pseudoMd5',    HiddenType::class)
             ->add('save',    SubmitType::class);
     }
     

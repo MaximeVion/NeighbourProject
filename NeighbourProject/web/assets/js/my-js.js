@@ -5,5 +5,4 @@ $(document).ready(function(){
     $('#openConnectUserModal').click( function(){
         $('#connectUserModal').modal("show")
     });
-    console.log("check");
 });
