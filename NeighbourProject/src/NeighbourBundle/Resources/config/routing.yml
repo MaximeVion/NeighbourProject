@@ -3,5 +3,5 @@ neighbour_connexion:
     defaults: { _controller: NeighbourBundle:Home:index }
 
 neighbour_homepage:
-    path:     /home/{userHash}
+    path:     /home
     defaults: { _controller: NeighbourBundle:Home:home }

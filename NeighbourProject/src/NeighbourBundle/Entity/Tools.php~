@@ -1,0 +1,103 @@
+<?php
+
+namespace NeighbourBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tools
+ *
+ * @ORM\Table(name="tool")
+ * @ORM\Entity(repositoryClass="NeighbourBundle\Repository\ToolsRepository")
+ */
+class Tools
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="disponibility", type="boolean")
+     */
+    private $disponibility;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="DevoirBundle\Entity\Bar", inversedBy="tools")
+     *
+     */
+    private $user;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Tools
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set disponibility
+     *
+     * @param boolean $disponibility
+     *
+     * @return Tools
+     */
+    public function setDisponibility($disponibility)
+    {
+        $this->disponibility = $disponibility;
+
+        return $this;
+    }
+
+    /**
+     * Get disponibility
+     *
+     * @return bool
+     */
+    public function getDisponibility()
+    {
+        return $this->disponibility;
+    }
+}
+

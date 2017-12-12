@@ -22,7 +22,6 @@ class UserType extends AbstractType
             ->add('pseudo',   TextType::class)
             ->add('telephone',  TextType::class)
             ->add('appartement',    TextType::class)
-            ->add('pseudoMd5',    HiddenType::class)
             ->add('save',    SubmitType::class);
     }
     

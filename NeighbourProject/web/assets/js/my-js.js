@@ -5,4 +5,6 @@ $(document).ready(function(){
     $('#openConnectUserModal').click( function(){
         $('#connectUserModal').modal("show")
     });
+
+    $('#toolsTable').DataTable();
 });

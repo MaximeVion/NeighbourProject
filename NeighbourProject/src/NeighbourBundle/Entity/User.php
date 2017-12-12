@@ -45,13 +45,6 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="pseudoMd5", type="string", length=255)
-     */
-    private $pseudoMd5;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="telephone", type="string", length=255, nullable=true)
      */
     private $telephone;
@@ -63,6 +56,11 @@ class User
      */
     private $appartement;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="NeighbourBundle\Entity\Tool", mappedBy="user")
+     */
+    private $tools;
 
     /**
      * Get id
@@ -194,27 +192,46 @@ class User
         return $this->appartement;
     }
 
+
     /**
-     * Set pseudoMd5
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tools = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add tool
      *
-     * @param string $pseudoMd5
+     * @param \neighbourBundle\Entity\Tool $tool
      *
      * @return User
      */
-    public function setPseudoMd5($pseudoMd5)
+    public function addTool(\neighbourBundle\Entity\tool $tool)
     {
-        $this->pseudoMd5 = $pseudoMd5;
+        $this->tools[] = $tool;
 
         return $this;
     }
 
     /**
-     * Get pseudoMd5
+     * Remove tool
      *
-     * @return string
+     * @param \neighbourBundle\Entity\tool $tool
      */
-    public function getPseudoMd5()
+    public function removeTool(\neighbourBundle\Entity\Tool $tool)
     {
-        return $this->pseudoMd5;
+        $this->tools->removeElement($tool);
+    }
+
+    /**
+     * Get tools
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTools()
+    {
+        return $this->tools;
     }
 }

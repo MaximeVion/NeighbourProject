@@ -1,0 +1,97 @@
+<?php
+
+namespace NeighbourBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Toollist
+ *
+ * @ORM\Table(name="toollist")
+ * @ORM\Entity(repositoryClass="NeighbourBundle\Repository\ToollistRepository")
+ */
+class Toollist
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     *
+     * @ORM\OneToOne(targetEntity="NeighbourBundle\Entity\tool", cascade={"persist"})
+     *
+     */
+    private $toolName ;
+
+
+    /*
+     *
+     * @ORM\OneToOne()
+     *
+     * /
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Toollist
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    
+    /**
+     * Set toolName
+     *
+     * @param \NeighbourBundle\Entity\tool $toolName
+     *
+     * @return Toollist
+     */
+    public function setToolName(\NeighbourBundle\Entity\tool $toolName = null)
+    {
+        $this->toolName = $toolName;
+
+        return $this;
+    }
+
+    /**
+     * Get toolName
+     *
+     * @return \NeighbourBundle\Entity\tool
+     */
+    public function getToolName()
+    {
+        return $this->toolName;
+    }
+}
