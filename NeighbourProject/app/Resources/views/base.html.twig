@@ -16,31 +16,28 @@
     {% block navigation %}
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand mr-3" href="#">
+{#
                 <img src="{{ asset("assets/img/bank.png") }}" width="30" height="30" class="d-inline-block align-top" alt="">
+#}
+                2 Impasse Nationale
 
             </a>
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav mr-auto">
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarColor01">
+                <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link text-info" href="{{ path('neighbour_homepage') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link text-info" href="#">Features</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
+                    <form method="post">
+                        <button class="btn btn-outline-info my-2 my-sm-0"
+                                name="action"
+                                value="logOffUser"
+                                type="submit">Deconnexion
+                        </button>
+                    </form>
                 </ul>
-                <form method="post">
-                    <button class="btn btn-outline-info my-2 my-sm-0"
-                            name="action"
-                            value="logOffUser"
-                            type="submit">Deconnexion
-                    </button>
-                </form>
             </div>
         </nav>
     {% endblock %}
