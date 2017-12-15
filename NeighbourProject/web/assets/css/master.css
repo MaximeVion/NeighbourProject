@@ -56,12 +56,17 @@ body.connexion > .container{
 .bg-lightgreen{
     background-color: rgba(0,255,0,0.2) !important;
 }
-.msg-window{
-    position: relative !important;
+.bg-lightdark{
+    background-color: rgba(0,0,0,0.2) !important;
 }
-.myTextarea{
-    position: fixed;
-    bottom: 20px;
-    margin: auto;
-    background-color: #aaa;
+.msg-window{
+    overflow: auto;
+    min-height: calc(100vh - 180px);
+}
+
+.msg-window span{
+    font-size: 0.85em;
+}
+span.text-warning{
+    font-size: 1.5em;
 }

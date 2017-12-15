@@ -58,9 +58,15 @@ class User
 
 
     /**
-     * @ORM\OneToMany(targetEntity="neighbourBundle\Entity\tool", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="NeighbourBundle\Entity\Tool", mappedBy="user")
      */
     private $tools;
+
+    /**
+     * @ORM\OneToMany(targetEntity="NeighbourBundle\Entity\Message", mappedBy="user")
+     */
+    private $messages;
+
 
     /**
      * Get id
@@ -192,20 +198,6 @@ class User
         return $this->appartement;
     }
 
-    /**
-     * Set pseudoMd5
-     *
-     * @param string $pseudoMd5
-     *
-     * @return User
-     */
-    public function setPseudoMd5($pseudoMd5)
-    {
-        $this->pseudoMd5 = $pseudoMd5;
-
-        return $this;
-    }
-
 
     /**
      * Constructor
@@ -218,7 +210,7 @@ class User
     /**
      * Add tool
      *
-     * @param \neighbourBundle\Entity\tool $tool
+     * @param \neighbourBundle\Entity\Tool $tool
      *
      * @return User
      */
@@ -234,7 +226,7 @@ class User
      *
      * @param \neighbourBundle\Entity\tool $tool
      */
-    public function removeTool(\neighbourBundle\Entity\tool $tool)
+    public function removeTool(\neighbourBundle\Entity\Tool $tool)
     {
         $this->tools->removeElement($tool);
     }

@@ -63,6 +63,12 @@ class User
     private $tools;
 
     /**
+     * @ORM\OneToMany(targetEntity="NeighbourBundle\Entity\Message", mappedBy="user")
+     */
+    private $messages;
+
+
+    /**
      * Get id
      *
      * @return int
